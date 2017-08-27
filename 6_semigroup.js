@@ -7,6 +7,8 @@ const Sum = x => ({
     inspect: () => `Sum(${x})`
 });
 
+Sum.empty = () => Sum(0);
+
 // const res = Sum(1).concat(Sum(2));
 
 const All = x => ({
@@ -15,6 +17,7 @@ const All = x => ({
     inspect: () => `All(${x})`
 });
 
+All.empty = () => All(true);
 
 // const res = All(true).concat(All(true));
 
