@@ -1,0 +1,23 @@
+{
+  "name": "composable-functional-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1_box.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somallg/composable-functional-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somallg/composable-functional-javascript/issues"
+  },
+  "homepage": "https://github.com/somallg/composable-functional-javascript#readme",
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "immutable-ext": "^1.1.2"
+  }
+}
