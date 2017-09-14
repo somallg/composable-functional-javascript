@@ -1,24 +1,23 @@
 /* @flow */
 
-type FuncType = (x: any) => mixed;
+import type { Func } from './1_box';
 
 export const Right = (x: any) => ({
-  chain: (f: FuncType) => f(x),
-  map: (f: FuncType) => Right(f(x)),
-  fold: (f: FuncType, g: FuncType) => g(x),
+  chain: (f: Func) => f(x),
+  map: (f: Func) => Right(f(x)),
+  fold: (f: Func, g: Func) => g(x),
   inspect: () => `Right(${x})`
 });
 
 export const Left = (x: any) => ({
-  chain: (f: FuncType) => Left(x),
-  map: (f: FuncType) => Left(x),
-  fold: (f: FuncType, g: FuncType) => f(x),
+  chain: (f: Func) => Left(x),
+  map: (f: Func) => Left(x),
+  fold: (f: Func, g: Func) => f(x),
   inspect: () => `Left(${x})`
 });
 
-export const Either = {
-  of: (x: mixed) => Right(x)
-};
+export const Either = Right || Left;
+Either.of = (x: mixed) => Right(x)
 
 export const tryCatch = (f: () => mixed) => {
   try {
@@ -29,13 +28,3 @@ export const tryCatch = (f: () => mixed) => {
 };
 
 export const fromNullable = (x: mixed) => !!x ? Right(x) : Left(x);
-
-const findColor = name => fromNullable({ red: '#ff4444', blue: '#3b5998', yellow: '#fff68f' }[name]);
-
-//const result = Left(3).map(x => x + 1).map(x => x / 2).fold(x => 'error', x => x);
-const result = findColor('red')
-  .map((c: string) => c.slice(1))
-  .fold(c => 'no color',
-    (c: string) => c.toUpperCase());
-
-// console.log(result);

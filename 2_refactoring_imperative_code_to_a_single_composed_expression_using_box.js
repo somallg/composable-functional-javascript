@@ -10,13 +10,13 @@ const moneyToFloat = (str: string) =>
 const percentToFloat = (str: string) =>
   Box(str.replace(/\%/g, ''))
     .map(parseFloat)
-    .map(n => n * 0.01);
+    .map((n: number) => n * 0.01);
 
 const applyDiscount = (price: string, discount: string) =>
   moneyToFloat(price)
-    .fold(cost =>
+    .fold((cost: number) =>
       percentToFloat(discount)
-        .fold(savings => cost - cost * savings)
+        .fold((savings: number) => cost - cost * savings)
     );
 
 console.log(applyDiscount('$5.00', '20%'));
