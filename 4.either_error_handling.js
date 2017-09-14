@@ -1,34 +1,17 @@
-const Right = x => ({
-  chain: f => f(x),
-  map: f => Right(f(x)),
-  fold: (f, g) => g(x),
-  inspect: () => `Right(${x})`
-});
+/* @flow */
 
-const Left = x => ({
-  chain: f => Left(x),
-  map: f => Left(x),
-  fold: (f, g) => f(x),
-  inspect: () => `Left(${x})`
-});
-
-const fromNullable = x => !!x ? Right(x) : Left(x);
-
-const fs = require('fs');
-
-const tryCatch = f => {
-  try {
-    return Right(f());
-  } catch (e) {
-    return Left(e);
-  }
-};
+import fs from 'fs';
+import { tryCatch } from './3_either';
 
 const getPort = () =>
   tryCatch(() => fs.readFileSync('config.json'))
-    .chain(e => tryCatch(() => JSON.parse(e)))
-    .fold(e => 3000,
-          e => e.port);
+    .map(
+      (e: string) => JSON.parse(e)
+    )
+    .fold(
+      (e: any) => e,
+      (e: any) => e
+    );
 
 // const getPort = () => {
 //   try {

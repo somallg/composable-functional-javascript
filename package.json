@@ -4,7 +4,9 @@
   "description": "",
   "main": "1_box.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flow": "flow",
+    "babel-node": "babel-node"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,11 @@
     "data.task": "^3.1.1",
     "immutable": "^3.8.1",
     "immutable-ext": "^1.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.54.1"
   }
 }
