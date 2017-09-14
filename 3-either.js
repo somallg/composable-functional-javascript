@@ -1,6 +1,6 @@
 /* @flow */
 
-import type { Func } from './1_box';
+import type { Func } from './1-box';
 
 export const Right = (x: any) => ({
   chain: (f: Func) => f(x),
@@ -17,7 +17,7 @@ export const Left = (x: any) => ({
 });
 
 export const Either = Right || Left;
-Either.of = (x: mixed) => Right(x)
+Either.of = (x: mixed) => Right(x);
 
 export const tryCatch = (f: () => mixed) => {
   try {

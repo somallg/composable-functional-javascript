@@ -1,6 +1,6 @@
 /* @flow */
 
-import { Box } from './1_box';
+import { Box } from './1-box';
 
 const moneyToFloat = (str: string) =>
   Box(str)

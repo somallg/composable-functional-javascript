@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 
-import { tryCatch } from './3_either';
+import { tryCatch } from './3-either';
 
 const getPort = () =>
   tryCatch(() => fs.readFileSync('config.json'))

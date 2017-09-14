@@ -1,4 +1,6 @@
-const Box = require('./1_box');
+/* @flow */
+
+import { Box, id } from './1-box';
 
 // httpGet('/user')
 //   .chain(user =>
@@ -6,8 +8,8 @@ const Box = require('./1_box');
 //       .chain(comments =>
 //         updateDOM(user, comments))); // => Task(Task(Task(DOM)))
 
-const join = m =>
-  m.chain(x => x);
+const join = (m: any) =>
+  m.chain(id);
 
 // law 1 join(m.map(join)) === join(join(m))
 // const m = Box(Box(Box(10)));

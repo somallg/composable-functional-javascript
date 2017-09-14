@@ -1,9 +1,11 @@
-const { Map, List } = require('immutable-ext');
+/* @flow */
 
-const Sum = x =>
+import { Map, List } from 'immutable-ext';
+
+const Sum = (x: number) =>
   ({
     x,
-    concat: ({ x: y }) => Sum(x + y),
+    concat: ({ x: y }: Sum) => Sum(x + y),
     inspect: () => `Sum(${x})`
   });
 Sum.empty = () => Sum(0);

@@ -1,4 +1,6 @@
-const Task = require('data.task');
+/* @flow */
+
+import Task from 'data.task';
 
 const launchMissiles = () =>
   new Task((reject, resolve) => {
@@ -8,7 +10,8 @@ const launchMissiles = () =>
 
 // Task.rejected(1) // Task(1)
 launchMissiles()
-  .map(x => x + '!')
-  .map(x => x + '!')
-  .fork(e => console.log('error', e),
+  .map((x: string) => x + '!')
+  .map((x: string) => x + '!')
+  .fork(
+    e => console.log('error', e),
     x => console.log('success', x));

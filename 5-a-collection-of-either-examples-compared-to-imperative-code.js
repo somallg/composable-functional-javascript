@@ -1,4 +1,10 @@
-const openSite = () => {
+/* @flow */
+
+import fs from 'fs';
+
+import { Right, Left, fromNullable, tryCatch } from './3-either';
+
+const openSiteI = () => {
   if (current_user) {
     return renderPage(current_user);
   } else {
@@ -11,7 +17,7 @@ const openSite = () => {
     .fold(showLogin, renderPage);
 };
 
-const getPrefs = user => {
+const getPrefsI = user => {
   if (user.premium) {
     return loadPrefs(user.preferences);
   } else {
@@ -20,12 +26,12 @@ const getPrefs = user => {
 };
 
 const getPrefs = user =>
-  (user.primium ? Right(user) ? Left('not primium'))
+  (user.primium ? Right(user) : Left('not primium'))
     .map(u => u.preferences)
     .fold(() => defaultPrefs, prefs => loadPrefs(prefs));
 
 
-const streetName = user => {
+const streetNameI = user => {
   const address = user.address;
 
   if (address) {
@@ -46,7 +52,7 @@ const streetName = user =>
     .fold(e => 'no street',
       n => n);
 
-const concatUniq = (x, ys) => {
+const concatUniqI = (x, ys) => {
   const found = ys.filter(y => y === x)[0];
   return found ? ys : ys.concat(x);
 };
@@ -56,7 +62,7 @@ const concatUniq = (x, ys) =>
     .fold(e => ys.concat(x),
       e => ys);
 
-const wrapExamples = example => {
+const wrapExamplesI = example => {
   if (example.previewPath) {
     try {
       example.preview = fs.readFileSync(example.previewPath);
@@ -77,7 +83,7 @@ const wrapExamples = example =>
     .fold(() => example,
       ex => Object.assign({ preview: '' }, ex));
 
-const parseDbUrl = cfg => {
+const parseDbUrlI = cfg => {
   try {
     const c = JSON.parse(cfg);
 

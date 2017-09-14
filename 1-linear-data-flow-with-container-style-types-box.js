@@ -1,6 +1,6 @@
 /* @flow */
 
-import { Box } from './1_box';
+import { Box } from './1-box';
 
 const mapToCharCode = (x: any) =>
   Box(x)

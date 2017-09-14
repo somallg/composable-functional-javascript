@@ -7,7 +7,10 @@ export const Box = (x: number | string) => ({
   chain: (f: Func) => f(x),
   map: (f: Func) => Box(f(x)),
   fold: (f: Func) => f(x),
-  inspect: () => `Box(${x})`
+  of: (x: number | string) => Box(x),
+  inspect: () => `Box(${x.toString()})`
 });
+
+export const id = (x: mixed) => x;
 
 Box.of = x => Box(x);

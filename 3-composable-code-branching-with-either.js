@@ -1,6 +1,6 @@
 /* @flow */
 
-import { fromNullable } from './3_either';
+import { fromNullable } from './3-either';
 
 const findColor = name => fromNullable({ red: '#ff4444', blue: '#3b5998', yellow: '#fff68f' }[name]);
 
