@@ -27,3 +27,17 @@ const join = m =>
 # 18. Applicative Functors for multiple arguments
 * Box of a function we want to apply that funciton to another Box of a value
 * F(x).map(f) === F(f).ap(F(x))
+
+
+# 23. Maintaining structure whilst asyncing 
+* We take our Promise.all() analogy further by using traversable on a Map(). Then we use two traversals in the same workflow.
+
+# 24. Principled type conversions with Natural Transformations
+* We learn what a natural transformation is and see the laws it must obey. We will see how a natural transformation must uphold the law of `nt(x).map(f) == nt(x.map(f))`.
+
+# 25. Apply Natural Transformations in everyday work
+* We see three varied examples of where natural transformations come in handy.
+
+# 26. Isomorphisms and round trip data transformations
+* We formally define isomorphisms, make a few, then use them to accomplish normal programming tasks
+

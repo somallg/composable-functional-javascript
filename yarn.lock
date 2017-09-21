@@ -907,6 +907,10 @@ function-bind@^1.0.2, function-bind@^1.1.1, function-bind@~1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
 
+futurize@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/futurize/-/futurize-1.2.0.tgz#6ef93abb1b532ca45494bb96fa6c0900acabc43d"
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
