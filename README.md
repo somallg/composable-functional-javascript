@@ -41,3 +41,9 @@ const join = m =>
 # 26. Isomorphisms and round trip data transformations
 * We formally define isomorphisms, make a few, then use them to accomplish normal programming tasks
 
+# 27. Build a data flow for a real world app
+* We form a plan to find the common ground between two artists from the spotify api. Then we sketch out a data flow to ensure we have what we need, when we need it.
+
+# 28. Find the intersection of sets with Semigroups
+* We use semigroups to find the intersection of sets, then expand that to work on as many artists as we'd like. Finally, we use foldable to show a pair of intersection and sum to shed more light on the final result set.
+
